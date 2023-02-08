@@ -25,7 +25,7 @@ const ProfileInfo = props => {
                 <h5>{props.user.location}</h5>
                 <h5>{props.user.email}</h5>
                 <h5>{props.user.blog}</h5>
-                <h5>@{props.user.twitter_username}</h5>
+                {props.user.twitter_username && <h5>@{props.user.twitter_username}</h5>}
             </section>
             <footer className="d-flex justify-content-center">
                 <Link to={'/perfil'} className="text-decoration-none">
