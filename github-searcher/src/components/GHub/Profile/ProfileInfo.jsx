@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faUsers, faHeart, faStar } from "@fortawesome/free-solid-svg-icons"
 
 const ProfileInfo = props => {
     return (
@@ -13,10 +15,10 @@ const ProfileInfo = props => {
             <section className="profile-info__bio text-dark">
                 <p>{props.user.bio}</p>
             </section>
-            <section className="profile-info__stats d-flex flex-row">
-                <h6>{props.user.followers} followers</h6>
-                <h6>{props.user.following} following</h6>
-                {/* <h6>{maykbrito.repos.length} stars</h6> */}
+            <section className="profile-info__stats d-flex flex-row justify-content-between">
+                <span><FontAwesomeIcon icon={faUsers} />{props.user.followers} followers</span>
+                <span><FontAwesomeIcon icon={faHeart} />{props.user.following} following</span>
+                <span><FontAwesomeIcon icon={faStar} />{props.user.following} stars</span>
             </section>
             <section className="profile-info__details">
                 <h5>{props.user.company}</h5>
