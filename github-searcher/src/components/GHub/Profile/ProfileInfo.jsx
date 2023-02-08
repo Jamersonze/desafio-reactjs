@@ -1,31 +1,37 @@
-import maykbrito from "../../../Data/maykbritoUser"
+import { Link } from "react-router-dom"
 
 const ProfileInfo = props => {
     return (
-        <aside className="profile-info bg-secondary p-4 h-auto text-light" style={{maxHeight: 'auto', maxWidth: '25%'}}>
-            <section className="profile-info__avatar d-flex justify-content-center">
+        <aside className="profile-info bg-secondary p-3 h-auto text-light position-absolute top-0 start-0 bottom-0 height-100 d-flex flex-column justify-content-around" style={{maxWidth: '25%'}}>
+            <header className="profile-info__avatar d-flex justify-content-center">
                 <img src={props.user.avatar_url} alt="jaca" style={{maxWidth: '300px', maxHeight: '300px'}} />
-            </section>
+            </header>
             <section className="profile-info__name">
-                <h2>{props.user.name}</h2>
+                <h3 className="mb-0">{props.user.name}</h3>
                 <h5>@{props.user.login}</h5>
             </section>
-            <section className="profile-info__bio">
+            <section className="profile-info__bio text-dark">
                 <p>{props.user.bio}</p>
             </section>
-            <section className="profile-info__stats d-flex">
-                {/* Componente para pegar o numero de seguidores, seguindo e estrelas */}
-                <p>{props.user.followers} followers</p>
-                <p>{props.user.following} following</p>
-                <p>{maykbrito.repos.length} stars</p>
+            <section className="profile-info__stats d-flex flex-row">
+                <h6>{props.user.followers} followers</h6>
+                <h6>{props.user.following} following</h6>
+                {/* <h6>{maykbrito.repos.length} stars</h6> */}
             </section>
             <section className="profile-info__details">
                 <h5>{props.user.company}</h5>
                 <h5>{props.user.location}</h5>
                 <h5>{props.user.email}</h5>
                 <h5>{props.user.blog}</h5>
-                <h5>{props.user.twitter_username}</h5>
+                <h5>@{props.user.twitter_username}</h5>
             </section>
+            <footer className="d-flex justify-content-center">
+                <Link to={'/perfil'} className="text-decoration-none">
+                    <button className="back px-5 py-2 rounded-3">
+                        Voltar
+                    </button>
+                </Link>
+            </footer>
         </aside>
     )
 }
