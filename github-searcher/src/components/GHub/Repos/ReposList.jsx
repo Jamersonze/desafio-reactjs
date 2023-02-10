@@ -2,9 +2,9 @@ import Repo from './Repo'
 
 const ReposList = props => {
     return (
-        <section className="profile-repos p-3">
-            Remedio na cama
-        </section>
+        <ul className="repos list-group list-group-flush">
+            {props.repos.map((repo, index) => (<Repo repo={repo} key={index} />))}
+        </ul>
     )
 }
 
